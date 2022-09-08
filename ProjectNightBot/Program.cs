@@ -6,6 +6,7 @@ using ProjectNightBot.Utils;
 public class Program
 {
 	public static DiscordSocketClient Client { get; private set; }
+	public static SocketGuild Guild { get; private set; }
 
 	public static readonly string SECRET_FILE = "token.txt";
 	public static readonly string MODULE_PATH = "Modules";
@@ -36,18 +37,24 @@ public class Program
 
 		// Subscribe to events
 		Client.Ready += ClientReady;
+		Client.Log += ClientLog;
+		Client.GuildAvailable += async g => Guild = g;
 
 		// Log in
-		Console.WriteLine("Loading secret...");
+		if (!File.Exists(SECRET_FILE))
+		{
+			Console.WriteLine($"ERROR: File {SECRET_FILE} not found. Create this file and place your bot's login token within it.");
+		}
+
 		var token = File.ReadAllText(SECRET_FILE);
-		Console.WriteLine("Logging in...");
 		await Client.LoginAsync(TokenType.Bot, token);
-		Console.WriteLine("Starting...");
 		await Client.StartAsync();
 
 		// Block this task until program is closed
 		await Task.Delay(-1);
 	}
+
+	private async Task ClientLog(LogMessage log) => Console.WriteLine(log);
 
 	private async Task ClientReady()
 	{
@@ -61,7 +68,7 @@ public class Program
 
 		// Load commands
 		Console.WriteLine("Building commands...");
-		await CommandHandler.Start(AssemblyHandler, GuildUtils.GetGuild().ValueOr(GuildUtils.NoGuild));
+		await CommandHandler.Start(AssemblyHandler, Guild);
 
 		// Load plugins
 		Console.WriteLine("Starting plugins...");

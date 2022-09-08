@@ -30,7 +30,8 @@ internal class CommandHandler
 			.SelectMany(a => a
 				.GetTypes()
 				.Where(t => t.GetInterfaces().Contains(typeof(ICommand))))
-			.ToDictionary(t => t.Name, t => Activator.CreateInstance(t) as ICommand);
+				.Select(t => Activator.CreateInstance(t) as ICommand)
+			.ToDictionary(c => c.Name);
 
 		foreach (var command in _commands.Values)
 		{

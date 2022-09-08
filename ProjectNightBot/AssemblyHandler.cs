@@ -27,15 +27,18 @@ internal class AssemblyHandler
 		_assemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies());
 
 		// load assemblies from MODULE_PATH
-		foreach (var file in Directory.EnumerateFiles(Program.MODULE_PATH))
+		if (Directory.Exists(Program.MODULE_PATH))
 		{
-			try
+			foreach (var file in Directory.EnumerateFiles(Program.MODULE_PATH))
 			{
-				_assemblies.Add(Assembly.LoadFrom(file));
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex);
+				try
+				{
+					_assemblies.Add(Assembly.LoadFrom(file));
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex);
+				}
 			}
 		}
 
