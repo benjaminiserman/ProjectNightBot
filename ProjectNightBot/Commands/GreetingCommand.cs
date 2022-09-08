@@ -2,6 +2,7 @@
 
 using Discord;
 using Discord.WebSocket;
+using SharedInterfaces;
 
 internal class GreetingCommand : ICommand
 {

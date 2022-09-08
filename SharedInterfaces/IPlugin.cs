@@ -1,4 +1,4 @@
-﻿namespace ProjectNightBot;
+﻿namespace SharedInterfaces;
 
 using System.Reflection;
 using Discord.WebSocket;

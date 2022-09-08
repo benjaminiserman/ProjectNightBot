@@ -2,6 +2,7 @@
 
 using System.Collections.Immutable;
 using Discord.WebSocket;
+using SharedInterfaces;
 
 internal class CommandHandler
 {

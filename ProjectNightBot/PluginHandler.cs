@@ -1,6 +1,7 @@
 ﻿namespace ProjectNightBot;
 
 using System.Collections.Immutable;
+using SharedInterfaces;
 
 internal class PluginHandler
 {
