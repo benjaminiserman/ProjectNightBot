@@ -7,5 +7,5 @@ public interface ICommand
 {
 	string Name { get; }
 	SlashCommandProperties Build();
-	Task Execute(SocketSlashCommand command);
+	Task Execute(SocketSlashCommand command, DiscordSocketClient client);
 }

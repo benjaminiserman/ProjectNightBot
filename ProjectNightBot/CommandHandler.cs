@@ -38,6 +38,7 @@ internal class CommandHandler
 		{
 			try
 			{
+				Console.WriteLine("Loading command '{0}'", command.Name);
 				await guild.CreateApplicationCommandAsync(command.Build());
 			}
 			catch (Exception ex)
@@ -51,7 +52,7 @@ internal class CommandHandler
 	{
 		try
 		{
-			await _commands[command.Data.Name].Execute(command);
+			await _commands[command.Data.Name].Execute(command, Program.Client);
 		}
 		catch (Exception ex)
 		{

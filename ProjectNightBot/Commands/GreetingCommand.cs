@@ -18,7 +18,7 @@ internal class GreetingCommand : ICommand
 			.Build();
 	}
 
-	public async Task Execute(SocketSlashCommand command)
+	public async Task Execute(SocketSlashCommand command, DiscordSocketClient client)
 	{
 		await command.RespondAsync(greetings[Random.Shared.Next(greetings.Length)]);
 	}
