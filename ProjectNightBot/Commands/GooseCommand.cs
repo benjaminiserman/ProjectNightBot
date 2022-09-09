@@ -16,7 +16,7 @@ internal class GooseCommand : ICommand
 			.Build();
 	}
 
-	public async Task Execute(SocketSlashCommand command)
+	public async Task Execute(SocketSlashCommand command, DiscordSocketClient client)
 	{
 		var path = @$"Images/goose{Random.Shared.Next(1,6)}.jpg";
 		var fs = File.OpenRead(path);
