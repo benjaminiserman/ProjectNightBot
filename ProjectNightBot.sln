@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectNightBot", "ProjectN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedInterfaces", "SharedInterfaces\SharedInterfaces.csproj", "{7FEE92F7-6E40-4B7A-97F4-6E80BFC30246}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "JuliaPlugins", "JuliaPlugins\JuliaPlugins.fsproj", "{482FDC4B-7E9F-4A2A-AD97-EB459BF78655}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7FEE92F7-6E40-4B7A-97F4-6E80BFC30246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FEE92F7-6E40-4B7A-97F4-6E80BFC30246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FEE92F7-6E40-4B7A-97F4-6E80BFC30246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{482FDC4B-7E9F-4A2A-AD97-EB459BF78655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{482FDC4B-7E9F-4A2A-AD97-EB459BF78655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{482FDC4B-7E9F-4A2A-AD97-EB459BF78655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{482FDC4B-7E9F-4A2A-AD97-EB459BF78655}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
