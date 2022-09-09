@@ -12,7 +12,7 @@ internal class GooseCommand : ICommand
 	{
 		return new SlashCommandBuilder()
 			.WithName(Name)
-			.WithDescription("Get goosed sucker")
+			.WithDescription("Get goosed")
 			.Build();
 	}
 
