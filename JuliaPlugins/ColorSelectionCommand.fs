@@ -5,11 +5,6 @@ open System.Text.RegularExpressions
 open Discord
 open SharedInterfaces
 
-let filterMap (f: 'T -> 'U option) : seq<'T> -> seq<'U> =
-    Seq.map f
-    >> Seq.filter Option.isSome
-    >> Seq.map (fun o -> o.Value)
-
 let max_color_roles = 25
 
 let named_colors =
