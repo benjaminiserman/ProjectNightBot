@@ -14,7 +14,6 @@ public class Program
 	internal static CommandHandler CommandHandler { get; private set; } = new();
 	internal static AssemblyHandler AssemblyHandler { get; private set; } = new();
 	internal static PluginHandler PluginHandler { get; private set; } = new();
-	internal static ExitHandler ExitHandler { get; private set; } = new();
 
 	public static void Main(string[] args)
 	{
@@ -58,10 +57,6 @@ public class Program
 
 	private async Task ClientReady()
 	{
-		// catch CTRL+C
-		Console.WriteLine("Hooking termination events...");
-		ExitHandler.Start();
-
 		// Load external assemblies
 		Console.WriteLine("Loading assemblies...");
 		await AssemblyHandler.Start();
