@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SharedInterfaces\SharedInterfaces.csproj" />
+    <ProjectReference Include="..\JuliaPlugins\JuliaPlugins.fsproj" />
   </ItemGroup>
 
 </Project>

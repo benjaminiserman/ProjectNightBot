@@ -44,9 +44,9 @@ public class Program
 		{
 			Console.WriteLine($"ERROR: File {SECRET_FILE} not found. Create this file and place your bot's login token within it.");
 		}
-
+		
 		var token = File.ReadAllText(SECRET_FILE);
-		await Client.LoginAsync(TokenType.Bot, token);
+		await Client.LoginAsync(TokenType.Bot, token.Trim());
 		await Client.StartAsync();
 
 		// Block this task until program is closed

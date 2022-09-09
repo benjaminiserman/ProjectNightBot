@@ -5,7 +5,7 @@ using System.Reflection;
 
 internal class AssemblyHandler
 {
-	private readonly List<Assembly> _assemblies = new();
+	private readonly HashSet<Assembly> _assemblies = new();
 	private bool _started = false;
 
 	private ImmutableList<Assembly> _immutableAssemblies = null;
@@ -24,7 +24,11 @@ internal class AssemblyHandler
 
 	public async Task Start()
 	{
-		_assemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies());
+		foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+		{
+			_assemblies.Add(assembly);
+		}
+		Console.WriteLine(typeof(JuliaPlugins.Commands).Assembly);
 
 		// load assemblies from MODULE_PATH
 		if (Directory.Exists(Program.MODULE_PATH))
@@ -43,9 +47,7 @@ internal class AssemblyHandler
 		}
 
 		// load assemblies from referenced projects
-		foreach (var assemblyName in typeof(Program).Assembly
-			.GetReferencedAssemblies()
-			.Where(x => !_assemblies.Any(y => y.GetName() == x)))
+		foreach (var assemblyName in typeof(Program).Assembly.GetReferencedAssemblies())
 		{
 			_assemblies.Add(Assembly.Load(assemblyName)); // note: this is not being called recursively
 		}
