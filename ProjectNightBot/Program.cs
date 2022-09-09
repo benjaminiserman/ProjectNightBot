@@ -31,7 +31,7 @@ public class Program
 
 	public async Task MainAsync()
 	{
-		var config = new DiscordSocketConfig() { AlwaysDownloadUsers = true };
+		var config = new DiscordSocketConfig() { AlwaysDownloadUsers = true, GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.GuildMembers };
 		Client = new(config);
 
 		// Subscribe to events

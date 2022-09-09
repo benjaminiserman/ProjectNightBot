@@ -28,7 +28,7 @@ internal class AssemblyHandler
 		{
 			_assemblies.Add(assembly);
 		}
-		Console.WriteLine(typeof(JuliaPlugins.Commands).Assembly);
+		Console.WriteLine(typeof(JuliaPlugins.JuliaGreetingCommand).Assembly);
 
 		// load assemblies from MODULE_PATH
 		if (Directory.Exists(Program.MODULE_PATH))
