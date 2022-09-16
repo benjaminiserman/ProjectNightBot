@@ -7,7 +7,7 @@ internal static class GuildUtils
 {
 	public static Option<SocketGuild> GetGuild()
 	{
-		var first = Program.Client.Guilds.First();
+		var first = Program.Guild;
 
 		if (first is null)
 		{
