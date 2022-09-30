@@ -8,8 +8,12 @@ internal class GooseCommand : ICommand
 {
 	public string Name => "goose";
 
+	private string[] files;
+
 	public SlashCommandProperties Build()
 	{
+		files = Directory.GetFiles("Images/Geese");
+
 		return new SlashCommandBuilder()
 			.WithName(Name)
 			.WithDescription("Get goosed")
@@ -18,7 +22,8 @@ internal class GooseCommand : ICommand
 
 	public async Task Execute(SocketSlashCommand command, DiscordSocketClient client)
 	{
-		var path = @$"Images/goose{Random.Shared.Next(1,6)}.jpg";
+		var i = Random.Shared.Next(0, files.Length);
+		var path = files[i];
 		var fs = File.OpenRead(path);
 		await command.RespondWithFileAsync(fs, path);
 	}
